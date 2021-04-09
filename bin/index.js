@@ -13,7 +13,7 @@ let validationFileJSON = "./spam-validation.json"
 let modelFile = "./model.json"
 
 //Import Function
-function convertCsvToJson(csvFile=datasetFile, jsonFile=trainingFile) {
+function convertCsvToJson(csvFile = datasetFile, jsonFile = trainingFile) {
     console.log("Importing CSV to JSON...");
 
     fs.writeFileSync(jsonFile, "[");
@@ -59,13 +59,13 @@ function check(validationFile = validationFileJSON) {
 
     tdj.forEach(record => {
         let label = classifier.classify(record.v2);
-        if(label === record.v1){
+        if (label === record.v1) {
             correct++;
         }
         all++;
     })
 
-    console.log("Model score: " + correct + "/" + all + " perct: " + Number.parseFloat(correct/all).toPrecision(2))
+    console.log("Model score: " + correct + "/" + all + " perct: " + Number.parseFloat(correct / all).toPrecision(2))
 
     //spam
     console.log("==============SPAM==============")
@@ -76,7 +76,6 @@ function check(validationFile = validationFileJSON) {
     console.log("==============HAM==============")
     console.log(classifier.getClassifications("You might want to pull out more just in case and just plan on not spending it if you can, I don't have much confidence in derek and taylor's money management"));
     console.log(classifier.getClassifications("Idk. You keep saying that you're not, but since he moved, we keep butting heads over freedom vs. responsibility. And i'm tired. I have so much other stuff to deal with that i'm barely keeping myself together once this gets added to it."));
-
 
 }
 
