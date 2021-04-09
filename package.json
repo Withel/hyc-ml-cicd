@@ -1,0 +1,25 @@
+{
+  "name": "hyc-ml-cicd",
+  "version": "1.0.0",
+  "description": "Repository for Hack Your Career program - 27.04.2021",
+  "main": "bin/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Withel/hyc-ml-cicd.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Withel/hyc-ml-cicd/issues"
+  },
+  "homepage": "https://github.com/Withel/hyc-ml-cicd#readme",
+  "dependencies": {
+    "csvtojson": "^2.0.10",
+    "fs": "0.0.1-security",
+    "natural": "^5.0.3",
+    "util": "^0.12.3"
+  }
+}
