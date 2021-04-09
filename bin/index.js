@@ -1,7 +1,6 @@
 let fs = require('fs');
 let natural = require('natural');
 let csv = require('csvtojson');
-const { checkServerIdentity } = require('tls');
 
 let classifier = new natural.LogisticRegressionClassifier();
 
@@ -91,7 +90,6 @@ function main(args) {
 
     // console.log(classifier.getClassifications("Don't bark at me!"));
 
-    // convertCsvToJson()
 
     if (args[2] == "--train") {
         train();
