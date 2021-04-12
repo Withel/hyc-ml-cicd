@@ -1,5 +1,5 @@
 let fs = require('fs');
-let natural = require('fs');
+let natural = require('natural');
 let csv = require('csvtojson');
 
 function main(args){
