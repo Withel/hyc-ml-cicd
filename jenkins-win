@@ -1,0 +1,44 @@
+node {
+    
+    stage('Check workspace') {
+        echo 'Checking...'
+        bat 'echo %cd%'
+    }
+    
+    stage('Cloning Git') {
+        echo 'Cloning...'
+        git branch: 'finished-project',
+        url: 'https://github.com/Withel/hyc-ml-cicd.git'
+        dir("${env.WORKSPACE}"){
+            bat 'dir'
+        }
+    }
+     
+    stage('Build Project') {
+        echo 'Building...'
+        dir("${env.WORKSPACE}"){
+            bat "npm install"
+        }
+    }
+
+    stage('Train model') {
+        echo 'Training model...'
+        dir("${env.WORKSPACE}"){
+            bat "node . --train"
+        }
+    }
+    
+    stage('Check model') {
+        echo 'Checking Model...'
+        dir("${env.WORKSPACE}"){
+            bat "node . --check"
+        }
+    }
+    
+    stage('Archive artifacts') {
+        echo 'Archiving model...'
+        dir("${env.WORKSPACE}"){
+            archiveArtifacts artifacts: 'model.json'
+        }
+    }
+}
